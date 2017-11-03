@@ -28,7 +28,7 @@ test_generator = test_datagen.flow_from_directory(
         class_mode = 'sparse')
 
 my_model = model.ModelBuilder.build_vgg16()
-
+#my_model = model.ModelBuilder.build_custom()
 my_model.compile(loss='mean_squared_error',
               optimizer='adam',
               metrics=['mean_squared_error'])
