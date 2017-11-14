@@ -102,3 +102,4 @@ ENV/
 *.csv
 *.h5
 dataset/
+.DS_Store

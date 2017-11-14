@@ -10,23 +10,23 @@ class ModelBuilder:
         pass
 
     @staticmethod
-    def build_custom():
+    def build_custom(input_shape):
         model = Sequential()
-        model.add(Conv2D(32, (3, 3), input_shape=(224, 224, 3)))
+        model.add(Conv2D(32, (3, 3), input_shape=input_shape, padding = "same"))
         model.add(Activation('relu'))
         model.add(MaxPooling2D(pool_size=(2, 2)))
 
-        model.add(Conv2D(32, (3, 3)))
+        model.add(Conv2D(32, (3, 3), padding="same"))
         model.add(Activation('relu'))
         model.add(MaxPooling2D(pool_size=(2, 2)))
 
-        model.add(Conv2D(1, (3, 3)))
+        model.add(Conv2D(1, (3, 3),padding="same"))
         model.add(Activation('relu'))
         model.add(MaxPooling2D(pool_size=(2, 2)))
 
-        model.add(Reshape((26*26*1,1)))
+        model.add(Reshape((32*32*1,1)))
 
-        model.add(LSTM(200,))
+        model.add(LSTM(200,return_sequences= True))
         
         model.add(Dense(1, activation='linear'))
         
